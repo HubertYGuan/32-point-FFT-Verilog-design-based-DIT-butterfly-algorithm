@@ -3,7 +3,7 @@
 module butterfly2 #
 (
     parameter N = 16,
-    parameter Q = 1
+    parameter Q = 8
 )
 (
     input                   clk,
@@ -140,6 +140,8 @@ module butterfly2 #
 
 
     // Fisrt eq adders
+    // The angle is actually -2piik/N, which is negative so imaginary part is negative-ified
+    // Originally: in0_r + in1_r * w_r + in1_i * w_i
     adder3 # (.N(N)) A1
     (
         .clk(clk),

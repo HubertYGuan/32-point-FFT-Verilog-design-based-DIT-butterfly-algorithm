@@ -10,7 +10,6 @@ from cocotb.runner import get_runner
 def fixtoint(bn):
     bn = str(bn)
     intpart = -((int(bn[0:8], 2) ^ int("11111111", 2)) + 1) if (bn[0] == '1') else int(bn[0:8], 2)
-    print(intpart, int(bn[0:8], 2), 255 ^ int("11111111", 2))
     
     intpart *= (2**8)
     
