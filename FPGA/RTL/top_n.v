@@ -387,7 +387,8 @@ module top #
     );
 
     //--------instant of control unit--------------//
-    control_unit # (.N(N)) cu
+    // 16 gives width truncation error
+    control_unit # (.N(3)) cu
     (
         .clk2(clk2),
         .rst(rst),
