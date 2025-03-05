@@ -40,7 +40,8 @@ twiddles_i = numfi([sin(2 * pi * i / 32) for i in range(0, 16)], 1, 16, 8)
 print(twiddles_r)
 print(twiddles_i)
 
-y = [1, 0, 2] * 10 + [1, 0]
+y = [2, 0, -4] * 10 + [1, 0]
+y_bits = [num * (2**8) if num >= 0 else (2**16)+(num * (2**8)) for num in y]
 
 fft_y = fft(y)
 fft_y_r = numfi(np.real(fft_y), 1, 16, 8)
@@ -59,38 +60,38 @@ async def top(top):
     for _ in range(2):
         await RisingEdge(top.clk2)
         
-    top.in0_r.value = y[0] * (2**8)
-    top.in1_r.value = y[1] * (2**8)
-    top.in2_r.value = y[2] * (2**8)
-    top.in3_r.value = y[3] * (2**8)
-    top.in4_r.value = y[4] * (2**8)
-    top.in5_r.value = y[5] * (2**8)
-    top.in6_r.value = y[6] * (2**8)
-    top.in7_r.value = y[7] * (2**8)
-    top.in8_r.value = y[8] * (2**8)
-    top.in9_r.value = y[9] * (2**8)
-    top.in10_r.value = y[10] * (2**8)
-    top.in11_r.value = y[11] * (2**8)
-    top.in12_r.value = y[12] * (2**8)
-    top.in13_r.value = y[13] * (2**8)
-    top.in14_r.value = y[14] * (2**8)
-    top.in15_r.value = y[15] * (2**8)
-    top.in16_r.value = y[16] * (2**8)
-    top.in17_r.value = y[17] * (2**8)
-    top.in18_r.value = y[18] * (2**8)
-    top.in19_r.value = y[19] * (2**8)
-    top.in20_r.value = y[20] * (2**8)
-    top.in21_r.value = y[21] * (2**8)
-    top.in22_r.value = y[22] * (2**8)
-    top.in23_r.value = y[23] * (2**8)
-    top.in24_r.value = y[24] * (2**8)
-    top.in25_r.value = y[25] * (2**8)
-    top.in26_r.value = y[26] * (2**8)
-    top.in27_r.value = y[27] * (2**8)
-    top.in28_r.value = y[28] * (2**8)
-    top.in29_r.value = y[29] * (2**8)
-    top.in30_r.value = y[30] * (2**8)
-    top.in31_r.value = y[31] * (2**8)
+    top.in0_r.value = y_bits[0]
+    top.in1_r.value = y_bits[1]
+    top.in2_r.value = y_bits[2]
+    top.in3_r.value = y_bits[3]
+    top.in4_r.value = y_bits[4]
+    top.in5_r.value = y_bits[5]
+    top.in6_r.value = y_bits[6]
+    top.in7_r.value = y_bits[7]
+    top.in8_r.value = y_bits[8]
+    top.in9_r.value = y_bits[9]
+    top.in10_r.value = y_bits[10]
+    top.in11_r.value = y_bits[11]
+    top.in12_r.value = y_bits[12]
+    top.in13_r.value = y_bits[13]
+    top.in14_r.value = y_bits[14]
+    top.in15_r.value = y_bits[15]
+    top.in16_r.value = y_bits[16]
+    top.in17_r.value = y_bits[17]
+    top.in18_r.value = y_bits[18]
+    top.in19_r.value = y_bits[19]
+    top.in20_r.value = y_bits[20]
+    top.in21_r.value = y_bits[21]
+    top.in22_r.value = y_bits[22]
+    top.in23_r.value = y_bits[23]
+    top.in24_r.value = y_bits[24]
+    top.in25_r.value = y_bits[25]
+    top.in26_r.value = y_bits[26]
+    top.in27_r.value = y_bits[27]
+    top.in28_r.value = y_bits[28]
+    top.in29_r.value = y_bits[29]
+    top.in30_r.value = y_bits[30]
+    top.in31_r.value = y_bits[31]
     
     for _ in range(2):
         await RisingEdge(top.clk2)
